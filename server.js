@@ -1,4 +1,3 @@
-
 const express = require('express');
 const { graphqlHTTP } = require('express-graphql');
 const SolrNode = require('solr-node');
@@ -9,17 +8,18 @@ const app = express();
 
 // Solr setup
 const solrContent = new SolrNode({
-  host: 'localhost',
-  port: '8983',
+  host: '5b5f-2a01-4b00-ab06-fa00-644e-48d0-dc66-2e4.ngrok-free.app',
+  port: '443',
   core: 'content',
-  protocol: 'http',
+  protocol: 'https',
 });
 
 const solrApiKey = new SolrNode({
-  host: 'localhost',
-  port: '8983',
+  host: '5b5f-2a01-4b00-ab06-fa00-644e-48d0-dc66-2e4.ngrok-free.app',
+  port: '443',
   core: 'apiKey',
-  protocol: 'http',
+  protocol: 'https',
+
 });
 
 // GraphQL schema
