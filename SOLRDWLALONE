@@ -1,0 +1,18 @@
+%dw 2.0
+output application/json
+
+fun processObject(obj) =
+    obj mapObject (value, key) ->
+        (key): processValue(value)
+
+fun processArray(arr) =
+    arr map (item) ->
+        processValue(item)
+
+fun processValue(value) =
+    if (value is Object) processObject(value)
+    else if (value is Array) processArray(value)
+    else value
+
+fun main(payload) =
+    processValue(payload)
